@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{data.header}}</h1>
+  <div mat-dialog-content>
+    <p>{{data.message}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button class="btn-submit-color" [mat-dialog-close]="true" hidden={{data.showNoButton}} (click)="onNoClick()">No</button>
+    <button mat-button class="btn-yes-color" [mat-dialog-close]="true" hidden={{data.showYesButton}} cdkFocusInitial>Yes</button>
+    <button mat-button class="btn-submit-color" [mat-dialog-close]="true" hidden={{data.showOkButton}} cdkFocusInitial>Ok</button>
+  </div>

@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-12">
+          <mat-card [@zoomIn]="zoomIn">
+            <mat-card-header>
+              <mat-card-title>
+                  {{quizQuestion.QuestionNumber}}. {{quizQuestion.Question}}
+              </mat-card-title>
+            </mat-card-header>
+          </mat-card>
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row">
+    <div class="col-md-1"></div>
+        <mat-radio-group class="col-md-12" [(ngModel)]="selectedOption" disabled={{disableOptions}}>
+              <div class="col-md-3">
+                  <mat-card [@bounceInLeft]='bounceInLeft'>
+                      <mat-radio-button value={{quizQuestion.OptionOne}}>{{quizQuestion.OptionOne}}</mat-radio-button>
+                  </mat-card>
+              </div>
+             
+              <div class="col-md-3">
+                  <mat-card [@bounceInLeft]='bounceInLeft'>
+                      <mat-radio-button value={{quizQuestion.OptionTwo}}>{{quizQuestion.OptionTwo}}</mat-radio-button>
+                  </mat-card>
+              </div>
+
+              <div class="col-md-3">
+                  <mat-card [@bounceInRight]='bounceInRight'>
+                      <mat-radio-button value={{quizQuestion.OptionThree}}>{{quizQuestion.OptionThree}}</mat-radio-button>
+                  </mat-card>
+              </div>
+
+              <div class="col-md-3">
+                  <mat-card [@bounceInRight]='bounceInRight'>
+                <mat-radio-button value={{quizQuestion.OptionFour}}>{{quizQuestion.OptionFour}}</mat-radio-button>
+                  </mat-card>
+              </div>
+        </mat-radio-group>
+  </div>
+
+  <div class="row"></div>
+  <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <button mat-raised-button disabled={{btnSubmitFlag}} class="btn-text-font btn-submit-color" [@bounceInUp]='bounceInUp' (click)="onSubmitClick()">Submit</button>
+        </div>
+        <div class="col-md-1">
+            <button mat-raised-button disabled={{btnNextFlag}} class="btn-text-font btn-next-color" [@bounceInUp]='bounceInUp' (click)="onNextClick()">Next</button>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+          <button mat-raised-button color="warn" [@bounceInUp]='bounceInUp' class="btn-text-font btn-reset-align" (click)="openDialog()">Restart Quiz</button>
+        </div>
+  </div>
+
+  </div>

@@ -1,0 +1,54 @@
+
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+.fixed-button-center {
+    position: fixed;
+    bottom: 400px;
+    right: 500px;
+}
+.header-label-center {
+    position:fixed;
+    bottom: 500px;
+    right: 550px;
+}
+
+.header-text {
+    font-size: 800%;
+    font-family: "Lucida Console", Monaco, monospace;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #693BFF;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+    text-align: center;
+}
+
+.btn-text-font {
+    font-weight: bold;
+}
+
+.btn-next-color {
+    background-color:lightskyblue;
+    color: black;
+}
+
+.btn-yes-color {
+    background-color: red;
+    color: black
+}
+
+.btn-submit-color {
+    background-color:limegreen;
+    color: black;
+}
+
+.btn-reset-align {
+    float: right;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
