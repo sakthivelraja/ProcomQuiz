@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row">
+
+    <div class="col-md-5" style="font-weight:bold">
+      <label>Registration page</label>
+    </div>
+  <div class="row"></div>
+  <div class="row">
+    <div class="col-md-5"> 
+      <label>Enter user Id</label>
+      <input class="form-control" [(ngModel)]="registrationDetails.userName" (onchange)="ValidateEmail()">
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+      <label>Enter password</label>
+      <input class="form-control" minlength="8" [(ngModel)]="registrationDetails.password" (onchange) = "validatePassword()" >
+    </div>
+    </div>
+   
+     <div class="row">
+      <div class="col-md-5">
+      <label>Confirm password</label>
+      <input class="form-control" minlength="8" [(ngModel)]="registrationDetails.confirmPassword" validateConfirmPassword="registrationDetails.confirmPassword" (onchange)="validateConfirmPassword()">
+      </div>
+    </div>
+    
+     <div class="row">
+      <div class="col-md-5">
+      <button class="btn btn-primary btn-text-font">Submit</button>
+      </div>
+    </div>
+    
+ 
+   
+  </div>
+</div>

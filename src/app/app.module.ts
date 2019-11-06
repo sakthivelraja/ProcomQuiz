@@ -5,6 +5,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuizComponent } from './quiz/quiz.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
@@ -19,7 +20,8 @@ import { ResetDialogComponent } from './reset-dialog/reset-dialog.component';
     AppComponent,
     WelcomeComponent,
     QuizComponent,
-    ResetDialogComponent
+    ResetDialogComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
