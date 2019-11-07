@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Registration } from '../Models/QuizStructure';
+import { Registration } from '../Models/Registration';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-registration',
@@ -8,8 +10,9 @@ import { Registration } from '../Models/QuizStructure';
 })
 
 export class RegistrationComponent implements OnInit {
-  registrationDetails: Registration;
-  constructor() { 
+  registrationDetails: Registration = { userName:"", password:"", confirmPassword:""};
+
+  constructor(private snackBar: MatSnackBar) { 
 
   }
 
@@ -21,18 +24,16 @@ export class RegistrationComponent implements OnInit {
     
   }
 
-  validateUserName() {
-    if(registrationDetails.userName) {
-
-    }
+  submitForm() {
+    this.openSnackBar("New user registration successful!!! 👍🏾👍🏾👍🏾👍🏾", "Dismiss", 10000);
   }
 
-  validatePassword() {
-
+  openSnackBar(message: string, action: string, showDuration: number) {
+    this.snackBar.open(message, action, {
+      duration: showDuration,
+    });
   }
 
-  validateConfirmPassword() {
 
-  }
 
 }

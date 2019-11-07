@@ -4,38 +4,72 @@
   <div class="row"></div>
   <div class="row"></div>
   <div class="row">
-
+      <div class="col-md-3"></div>
     <div class="col-md-5" style="font-weight:bold">
       <label>Registration page</label>
     </div>
-  <div class="row"></div>
-  <div class="row">
-    <div class="col-md-5"> 
-      <label>Enter user Id</label>
-      <input class="form-control" [(ngModel)]="registrationDetails.userName" (onchange)="ValidateEmail()">
-    </div>
-    </div>
-    <div class="row">
-      <div class="col-md-5">
-      <label>Enter password</label>
-      <input class="form-control" minlength="8" [(ngModel)]="registrationDetails.password" (onchange) = "validatePassword()" >
-    </div>
-    </div>
-   
-     <div class="row">
-      <div class="col-md-5">
-      <label>Confirm password</label>
-      <input class="form-control" minlength="8" [(ngModel)]="registrationDetails.confirmPassword" validateConfirmPassword="registrationDetails.confirmPassword" (onchange)="validateConfirmPassword()">
-      </div>
-    </div>
-    
-     <div class="row">
-      <div class="col-md-5">
-      <button class="btn btn-primary btn-text-font">Submit</button>
-      </div>
-    </div>
-    
- 
-   
   </div>
+  <div class="row"></div>
+  <form #registrationForm="ngForm">
+      <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-5">
+            <label>Enter user Id</label>
+            <input class="form-control" required userNameValidator placeholder="User Id" [(ngModel)]="registrationDetails.userName" name="userName" #userName="ngModel">
+            <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+              <div *ngIf="userName.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="userName.errors.userNameValidator">
+                User name is invalid. It should be a valid email.
+              </div>
+            </div>
+      
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-5">
+            <label>Enter password</label>
+            <input class="form-control" minlength="8" [(ngModel)]="registrationDetails.password" name="userPassword" required userPasswordValidator placeholder="password" #userPassword="ngModel" type="password">
+            <div *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)" class="alert alert-danger">
+              <div *ngIf="userPassword.errors.required">
+                Password is required.
+              </div>
+              <div *ngIf="userPassword.errors.userPasswordValidator">
+                Entered password is invalid. It should have minimum eight characters, at least one upper case letter, one number and one special character
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-5">
+            <label>Confirm password</label>
+            <input class="form-control" minlength="8" [(ngModel)]="registrationDetails.confirmPassword" required  name="userConfirmPassword" #userConfirmPassword="ngModel" type="password" placeholder="Confirm Password" pattern="{{userPassword.value}}">
+            <div *ngIf="userConfirmPassword.invalid && (userConfirmPassword.dirty || userConfirmPassword.touched)" class="alert alert-danger">
+              <div *ngIf="userConfirmPassword.errors.required">
+                Confirm Password is required.
+              </div>
+              <div *ngIf="userConfirmPassword.errors.pattern">
+                Password doesn't match
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+              <button class="btn btn-primary btn-text-font" type="submit" [disabled]="!registrationForm.form.valid" (click)="submitForm()">Submit</button>
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-secondary btn-text-font" style="float:right" [routerLink]="['/']">Go to Quiz</button>
+            </div>
+          </div>
+  </form>
+
+
+
 </div>
